@@ -23,7 +23,11 @@ export const pageInLoadingAnimation = () => {
 }
 
 //*: Animation khi rời trang
-export const pageOutLoadingAnimation = (href: string, router: AppRouterInstance) => {
+export const pageOutLoadingAnimation = (
+  href: string,
+  router: AppRouterInstance,
+  onComplete?: () => void
+) => {
   const banners = [
     document.getElementById('banner-1'),
     document.getElementById('banner-2'),
@@ -39,8 +43,10 @@ export const pageOutLoadingAnimation = (href: string, router: AppRouterInstance)
     }).to(banners, {
       yPercent: 0,
       stagger: 0.2,
+      overwrite: true,
       onComplete: () => {
         router.push(href)
+        onComplete?.()
       },
     })
   }

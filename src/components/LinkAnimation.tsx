@@ -1,6 +1,6 @@
 'use client'
 
-import { useTransition } from 'react'
+import { useState, useTransition } from 'react'
 
 import { usePathname, useRouter } from 'next/navigation'
 
@@ -20,14 +20,13 @@ type Props = {
 const TransitionLink = ({ href, label }: Props) => {
   const router = useRouter()
   const pathname = usePathname()
-  const [isPending, startTransition] = useTransition()
+  const [animating, setAnimating] = useState(false)
 
   const handleClick = () => {
     // *: Kiểm tra nếu link đi đến khác với link hiện tại
     if (pathname !== href) {
-      startTransition(() => {
-        pageOutLoadingAnimation(href, router)
-      })
+      setAnimating(true)
+      pageOutLoadingAnimation(href, router, () => setAnimating(false))
     }
   }
 
@@ -36,7 +35,7 @@ const TransitionLink = ({ href, label }: Props) => {
       className={cn('text-xl text-neutral-900 hover:text-neutral-700')}
       onClick={handleClick}
       title={label}
-      disabled={isPending}
+      disabled={animating}
     >
       {label}
     </button>
