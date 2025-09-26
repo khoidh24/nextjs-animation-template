@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Starter with Page Transitions and Code Optimization
 
-## Getting Started
+This repository is a **Next.js starter template** with pre-configured features to help you build modern React apps efficiently. It comes with **smooth page transitions using GSAP**, automatic **import management with ESLint and Prettier**, and handy utilities for **class name merging**.
 
-First, run the development server:
+## Features
+
+### 1. Page Transitions with GSAP
+
+- Smooth in/out animations between pages using GSAP.
+- Ready-to-use transition hooks to enhance user experience.
+- Works seamlessly with Next.js routing.
+
+### 2. Code Quality and Optimization
+
+- **[ESLint](https://eslint.org/)** configured to:
+  - Remove unused imports automatically on save.
+  - Enforce code style consistency.
+- **[Prettier](https://prettier.io/)** integrated for auto-formatting.
+- Automatic import sorting to keep code clean and organized.
+
+### 3. Tailwind CSS Utilities
+
+- Includes tailwind-merge and clsx utilities for handling conditional and merged class names efficiently.
+- Simplifies dynamic Tailwind styling in components.
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/khoidh24/nextjs-animation-template
+cd nextjs-animation-template
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> [!NOTE]
+> You can use yarn, npm, pnpm,... whatever you're using
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start the development server:
 
-## Learn More
+```bash
+bun run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open `http://localhost:3000` to view your app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+├── src/
+│   ├── app/                 # Next.js pages/routes
+│   │   ├── about/           # About page
+│   │   ├── contact/         # Contact page
+│   │   ├── favicon.ico
+│   │   ├── globals.css      # Global styles
+│   │   ├── layout.tsx       # Layout component
+│   │   ├── page.tsx         # Main page entry
+│   │   └── template.tsx     # Page template (if needed)
+│   ├── components/          # Reusable UI components
+│   │   ├── LinkAnimation.tsx
+│   │   └── Navigation.tsx
+│   └── utils/               # Utility functions
+│       ├── animations.ts
+│       ├── index.ts
+│       └── styleMerge.ts    # cn utility with tailwind-merge and clsx
+├── public/                  # Static files
+├── .gitignore
+├── .prettierrc
+├── bun.lock
+├── eslint.config.js
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+└── tsconfig.json
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
