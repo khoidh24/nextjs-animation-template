@@ -1,4 +1,4 @@
-# Next.js Starter with Page Transitions and Code Optimization
+# Next.js Starter with Page Transitions
 
 This repository is a **Next.js starter template** with pre-configured features to help you build modern React apps efficiently. It comes with **smooth page transitions using GSAP**, automatic **import management with ESLint and Prettier**, and handy utilities for **class name merging**.
 
